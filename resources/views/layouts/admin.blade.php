@@ -21,6 +21,9 @@
 				<a class="navbar-brand" href="{{route('barang.index')}}">Data Barang</a>
                 </li>
                 <li>
+				<a class="navbar-brand" href="{{route('barangmasuk.index')}}">Barang Masuk</a>
+                </li>
+                <li>
 				<a class="navbar-brand" href="">Barang Keluar</a>
                 </li>
             </ul>
