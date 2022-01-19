@@ -4,7 +4,7 @@
 <div class="row">
 	<div class="col-md-12">
 		<div class="card"><br><a href="{{ url()->previous() }}">&nbsp;&nbsp;&nbsp;&nbsp;Kembali</a>
-			<h5 class="card-header"><b>Edit Data Vape</b></h5>
+			<h5 class="card-header"><b>Edit Data Paser</b></h5>
 			<form action="{{ route('barang.update',$barang->id) }}" method="post">
 				{{ csrf_field() }}
 				<div class="card-body">

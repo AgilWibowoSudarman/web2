@@ -24,7 +24,7 @@
 				<a class="navbar-brand" href="{{route('barangmasuk.index')}}">Barang Masuk</a>
                 </li>
                 <li>
-				<a class="navbar-brand" href="">Barang Keluar</a>
+				<a class="navbar-brand" href="{{route('barangkeluar.index')}}">Barang Keluar</a>
                 </li>
             </ul>
             </div>
