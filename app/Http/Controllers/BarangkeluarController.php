@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\barangkeluar;
+use App\barang;
 use Illuminate\Http\Request;
 
 class BarangkeluarController extends Controller
@@ -44,6 +45,7 @@ class BarangkeluarController extends Controller
         ]);
 
         $barangkeluar = new barangkeluar;
+        $barang = barang::where(['id' => $request['barang_id']])->first();
         $barangkeluar->barang_id = $request->barang_id;
         $barangkeluar->tanggal = $request->tanggal;
         $barangkeluar->jumlah = $request->jumlah;

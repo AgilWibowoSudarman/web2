@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\barangmasuk;
+use App\barang;
 use Illuminate\Http\Request;
 
 class BarangmasukController extends Controller
@@ -72,8 +73,8 @@ class BarangmasukController extends Controller
      */
     public function edit(barangmasuk $barangmasuk)
     {
-        $barangmasuk = barangmasuk::findOrFail($id);
-        return view('barangmasuk.edit',compact('barangmasuk'));
+        //$barangmasuk = barangmasuk::findOrFail($id);
+       //return view('barangmasuk.edit',compact('barangmasuk'));
     }
 
     /**
@@ -85,18 +86,18 @@ class BarangmasukController extends Controller
      */
     public function update(Request $request, barangmasuk $barangmasuk)
     {
-        $request->validate([
-            'barang_id' => 'required',
-            'tanggal' => 'required',
-            'jumlah' => 'required',
-        ]);
+        //$request->validate([
+          //  'barang_id' => 'required',
+           // 'tanggal' => 'required',
+          //  'jumlah' => 'required',
+    //   ]);
 
-        $barangmasuk = new barangmasuk;
-        $barangmasuk->barang_id = $request->barang_id;
-        $barangmasuk->tanggal = $request->tanggal;
-        $barangmasuk->jumlah = $request->jumlah;
-        $barangmasuk->save();
-        return redirect()->route('barangmasuk.index')->with('success', 'Data Berhasil Disimpan');
+       // $barangmasuk = new barangmasuk;
+       // $barangmasuk->barang_id = $request->barang_id;
+      // $barangmasuk->tanggal = $request->tanggal;
+      // $barangmasuk->jumlah = $request->jumlah;
+       // $barangmasuk->save();
+       //return redirect()->route('barangmasuk.index')->with('success', 'Data Berhasil Disimpan');
     }
 
     /**
@@ -107,8 +108,8 @@ class BarangmasukController extends Controller
      */
     public function destroy(barangmasuk $barangmasuk)
     {
-        $barangmasuk = barangmasuk::findOrFail($id);
-        $barangmasuk->delete();
-        return redirect()->route('barangmasuk.index');
+       // $barangmasuk = barangmasuk::findOrFail($id);
+       // $barangmasuk->delete();
+       // return redirect()->route('barangmasuk.index');
     }
 }

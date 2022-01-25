@@ -29,16 +29,16 @@
                                             </thead>
                                             <tbody>
                                                 @php $no = 1; @endphp
-                                                @foreach($barangmasuk as $data)
+                                                @foreach($barangmasuk as $barangmasuks)
                                                 <tr>
                                                     <td>{{ $no++ }}</td>
-                                                    <td>{{$data->barang_id}}</td>
-                                                    <td>{{$data->tanggal}}</td>
-                                                    <td>{{($data->jumlah)}}</td>
+                                                    <td>{{$barangmasuks->barang->namabarang}}</td>
+                                                    <td>{{$barangmasuks->tanggal}}</td>
+                                                    <td>{{($barangmasuks->jumlah)}}</td>
                                                     <td>
-                                                    <form action="{{ route('barang.destroy', $data->id) }}"method="POST">
+                                                    <form action="{{ route('barang.destroy', $barangmasuks->id) }}"method="POST">
                                                         @csrf @method('delete')
-                                                        <a href="{{ route('barang.edit',$data->id) }}" class="btn btn-primary">Edit</a>
+                                                        <a href="{{ route('barang.edit',$barangmasuks->id) }}" class="btn btn-primary">Edit</a>
                                                         <button type="submit" class="btn btn-danger" onclick="return confirm('Ingin Menghapus Data?')">Delete</button>
                                                     </form>
                                                     </td>
