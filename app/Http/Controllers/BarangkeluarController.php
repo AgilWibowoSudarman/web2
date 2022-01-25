@@ -27,7 +27,9 @@ class BarangkeluarController extends Controller
      */
     public function create()
     {
-        return view('barangkeluar.create');
+        $barangkeluar = barangkeluar::all();
+        $barang = barang::all();
+        return view('barangkeluar.create',compact('barangkeluar','barang'));
     }
 
     /**

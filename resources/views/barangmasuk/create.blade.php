@@ -7,15 +7,20 @@
 	<div class="col-md-12">
 		<div class="card">
 			<h5 class="card-header"><b>Tambah Data barang</b></h5>
-			<form action="{{ route('barang.store') }}" method="post">
+			<form action="{{ route('barangmasuk.store') }}" method="post">
 				{{ csrf_field() }}
 				<div class="card-body">
 
 					<div class="form-group {{ $errors->has('barang_id') ? ' has-error' : '' }}">
 						<label>Nama Barang</label>
-						<input type="text" class="form-control" name="barang_id" required>
-						@if ($errors->has('barang_id'))
-							<span class="help-block">
+						<select name="barang_id" class="form-control">
+						  <option>---</option>
+							@foreach($barang as $data)
+			  				<option value="{{ $data->id }}">{{ $data->namabarang }}</option>
+			  				@endforeach
+			  			</select>
+			  			@if ($errors->has('barang_id'))
+                            <span class="help-block">
                                 <strong>{{ $errors->first('barang_id') }}</strong>
                             </span>
                         @endif

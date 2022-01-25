@@ -11,7 +11,7 @@
             <div class="card-body">
                 <div class="card">
                     <div class="card-header">Data Barang Keluar
-                        <a href="{{ route('barang.create') }}" class="float-right btn btn-success btn-floating"> Tambah Data</a>
+                        <a href="{{ route('barangkeluar.create') }}" class="float-right btn btn-success btn-floating"> Tambah Data</a>
                     </div>
                         <div class="row">
                              <div class="col-md-12">
@@ -36,9 +36,9 @@
                                                     <td>{{$barangkeluars->tanggal}}</td>
                                                     <td>{{($barangkeluars->jumlah)}}</td>
                                                     <td>
-                                                    <form action="{{ route('barang.destroy', $barangkeluars->id) }}"method="POST">
+                                                    <form action="{{ route('barangkeluar.destroy', $barangkeluars->id) }}"method="POST">
                                                         @csrf @method('delete')
-                                                        <a href="{{ route('barang.edit',$barangkeluars->id) }}" class="btn btn-primary">Edit</a>
+                                                        <a href="{{ route('barangkeluar.edit',$barangkeluars->id) }}" class="btn btn-primary">Edit</a>
                                                         <button type="submit" class="btn btn-danger" onclick="return confirm('Ingin Menghapus Data?')">Delete</button>
                                                     </form>
                                                     </td>
