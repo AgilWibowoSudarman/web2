@@ -25,7 +25,9 @@ class BarangmasukController extends Controller
      */
     public function create()
     {
-        return view('barangmasuk.create');
+        $barangmasuk = barangmasuk::all();
+        $barang = barang::all();
+        return view('barangmasuk.create',compact('barangmasuk','barang'));
     }
 
     /**
@@ -43,6 +45,7 @@ class BarangmasukController extends Controller
         ]);
 
         $barangmasuk = new barangmasuk;
+        $barang = barang::where(['id' => $request['barang_id']])->first();
         $barangmasuk->barang_id = $request->barang_id;
         $barangmasuk->tanggal = $request->tanggal;
         $barangmasuk->jumlah = $request->jumlah;
