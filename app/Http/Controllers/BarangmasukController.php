@@ -44,7 +44,12 @@ class BarangmasukController extends Controller
             'tanggal' => 'required',
             'jumlah' => 'required',
         ]);
-
+        $barang = barang::where(['id' => $request['barang_id']])->first();
+        if($barang){
+            $stok = $barang->stok + (int) $request->jumlah;
+            // $total = $barang->total_stok + (int) $request->total_stock;
+            $barang->update(['stok' => $stok]);
+        }
         $barangmasuk = new barangmasuk;
         $barang = barang::where(['id' => $request['barang_id']])->first();
         $barangmasuk->barang_id = $request->barang_id;
@@ -74,7 +79,7 @@ class BarangmasukController extends Controller
     public function edit($id)
     {
        $barangmasuk = barangmasuk::findOrFail($id);
-       return view('barangmasuk.edit',compact('barang'));
+       return view('barangmasuk.edit',compact('barangmasuk'));
     }
 
     /**
@@ -84,7 +89,7 @@ class BarangmasukController extends Controller
      * @param  \App\barangmasuk  $barangmasuk
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, barangmasuk $barangmasuk)
+    public function update(Request $request,$id)
     {
         $request->validate([
           'barang_id' => 'required',
@@ -106,10 +111,10 @@ class BarangmasukController extends Controller
      * @param  \App\barangmasuk  $barangmasuk
      * @return \Illuminate\Http\Response
      */
-    public function destroy(barangmasuk $barangmasuk)
+    public function destroy($id)
     {
         $barangmasuk = barangmasuk::findOrFail($id);
         $barangmasuk->delete();
-       return redirect()->route('barangmasuk.index');
+        return redirect()->route('barangmasuk.index');;
     }
 }

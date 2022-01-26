@@ -3,7 +3,7 @@
 <section class="page-content container-fluid">
 <div class="row">
 	<div class="col-md-12">
-		<div class="card"><br><a href="{{ url()->previous() }}">&nbsp;&nbsp;&nbsp;&nbsp;Kembali</a>
+		<div class="card"><br><a href="{{ url()->previous() }}"><button type="previous" class="btn btn-success">Kembali</button></a>
 			<h5 class="card-header"><b>Edit Data Paser</b></h5>
 			<form action="{{ route('barang.update',$barang->id) }}" method="post">
 				{{ csrf_field() }}

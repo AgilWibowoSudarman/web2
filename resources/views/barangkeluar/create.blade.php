@@ -11,7 +11,7 @@
 				{{ csrf_field() }}
 				<div class="card-body">
 
-					<div class="form-group {{ $errors->has('barang_id') ? ' has-error' : '' }}">
+				<div class="form-group {{ $errors->has('barang_id') ? ' has-error' : '' }}">
 						<label>Nama Barang</label>
 						<select name="barang_id" class="form-control">
 						  <option>---</option>

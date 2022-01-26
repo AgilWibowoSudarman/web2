@@ -11,7 +11,7 @@
             <div class="card-body">
                 <div class="card">
                     <div class="card-header">Data Barang
-                        <a href="{{ route('barangmasuk.create') }}" class="float-right btn btn-success btn-floating"> Tambah Data</a>
+                        <a href="{{ route('barang.create') }}" class="float-right btn btn-success btn-floating"> Tambah Data</a>
                     </div>
                         <div class="row">
                              <div class="col-md-12">

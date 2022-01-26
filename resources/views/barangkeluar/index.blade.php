@@ -32,7 +32,7 @@
                                                 @foreach($barangkeluar as $barangkeluars)
                                                 <tr>
                                                     <td>{{ $no++ }}</td>
-                                                    <td>{{$barangkeluars->barang_id}}</td>
+                                                    <td>{{$barangkeluars->barang->namabarang}}</td>
                                                     <td>{{$barangkeluars->tanggal}}</td>
                                                     <td>{{($barangkeluars->jumlah)}}</td>
                                                     <td>

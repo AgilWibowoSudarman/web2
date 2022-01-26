@@ -46,6 +46,12 @@ class BarangkeluarController extends Controller
             'jumlah' => 'required',
         ]);
 
+        $barang = barang::where(['id' => $request['barang_id']])->first();
+        if($barang){
+            $stok = $barang->stok - (int) $request->jumlah;
+            // $total = $barang->total_stok + (int) $request->total_stock;
+            $barang->update(['stok' => $stok]);
+        }
         $barangkeluar = new barangkeluar;
         $barang = barang::where(['id' => $request['barang_id']])->first();
         $barangkeluar->barang_id = $request->barang_id;
@@ -72,7 +78,7 @@ class BarangkeluarController extends Controller
      * @param  \App\barangkeluar  $barangkeluar
      * @return \Illuminate\Http\Response
      */
-    public function edit(barangkeluar $barangkeluar)
+    public function edit($id)
     {
         $barangkeluar = barangkeluar::findOrFail($id);
         return view('barangkeluar.edit',compact('barangkeluar'));
@@ -107,7 +113,7 @@ class BarangkeluarController extends Controller
      * @param  \App\barangkeluar  $barangkeluar
      * @return \Illuminate\Http\Response
      */
-    public function destroy(barangkeluar $barangkeluar)
+    public function destroy($id)
     {
         $barangkeluar = barangkeluar::findOrFail($id);
         $barangkeluar->delete();
