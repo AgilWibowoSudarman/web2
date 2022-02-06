@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class barang extends Model
 {
     protected $table = 'barangs';
-    protected $fillable = array('namabarang','tanggal','jenisbarang','stock');
+    protected $fillable = array('namabarang','tanggal','jenisbarang','stok');
 
     public function barangmasuk() {
         return $this->hasMany('App\barangmasuk', 'barang_id', 'id');

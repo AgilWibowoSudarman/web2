@@ -81,7 +81,8 @@ class BarangkeluarController extends Controller
     public function edit($id)
     {
         $barangkeluar = barangkeluar::findOrFail($id);
-        return view('barangkeluar.edit',compact('barangkeluar'));
+        $barang = barang::all();
+        return view('barangkeluar.edit',compact('barangkeluar','barang'));
     }
 
     /**
@@ -99,7 +100,7 @@ class BarangkeluarController extends Controller
             'jumlah' => 'required',
         ]);
 
-        $barangkeluar = new barangkeluar;
+        $barangkeluar = barangkeluar::findOrFail($id);
         $barangkeluar->barang_id = $request->barang_id;
         $barangkeluar->tanggal = $request->tanggal;
         $barangkeluar->jumlah = $request->jumlah;

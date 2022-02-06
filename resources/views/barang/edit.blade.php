@@ -3,7 +3,7 @@
 <section class="page-content container-fluid">
 <div class="row">
 	<div class="col-md-12">
-		<div class="card"><br><a href="{{ url()->previous() }}"><button type="previous" class="btn btn-success">Kembali</button></a>
+		<div class="card"><br><a href="{{ url()->previous() }}">&nbsp;&nbsp;&nbsp;<button type="previous" class="btn btn-success">Kembali</button></a>
 			<h5 class="card-header"><b>Edit Data Paser</b></h5>
 			<form action="{{ route('barang.update',$barang->id) }}" method="post">
 				{{ csrf_field() }}
@@ -43,7 +43,7 @@
                         @endif
 			  		</div>
 
-			  		<div class="form-group {{ $errors->has('stok') ? ' has-error' : '' }}">
+			  		<!-- <div class="form-group {{ $errors->has('stok') ? ' has-error' : '' }}">
 			  			<label class="control-label">stok Barang</label>	
 			  			<input type="text" name="stok" class="form-control" value="{{ $barang->stok }}"  required>
 			  			@if ($errors->has('stok'))
@@ -51,7 +51,7 @@
                                 <strong>{{ $errors->first('stok') }}</strong>
                             </span>
                         @endif
-			  		</div>
+			  		</div> -->
 
 			  		<div class="form-group">
 			  			<button type="submit" class="btn btn-primary">Selesai</button>

@@ -39,23 +39,25 @@ class BarangmasukController extends Controller
      */
     public function store(Request $request)
     {
-         $request->validate([
+        $request->validate([
             'barang_id' => 'required',
             'tanggal' => 'required',
-            'jumlah' => 'required',
+            'jumlah' => 'required'
         ]);
+
         $barang = barang::where(['id' => $request['barang_id']])->first();
         if($barang){
             $stok = $barang->stok + (int) $request->jumlah;
-            // $total = $barang->total_stok + (int) $request->total_stock;
+            // $total = $Barang->total_stok + (int) $request->total_stok;
             $barang->update(['stok' => $stok]);
         }
+
         $barangmasuk = new barangmasuk;
         $barang = barang::where(['id' => $request['barang_id']])->first();
-        $barangmasuk->barang_id = $request->barang_id;
-        $barangmasuk->tanggal = $request->tanggal;
-        $barangmasuk->jumlah = $request->jumlah;
-        $barangmasuk->save();
+       $barangmasuk->barang_id = $request->barang_id;
+       $barangmasuk->tanggal = $request->tanggal;
+       $barangmasuk->jumlah = $request->jumlah;
+       $barangmasuk->save();
         return redirect()->route('barangmasuk.index')->with('success', 'Data Berhasil Disimpan');
     }
 
@@ -79,7 +81,8 @@ class BarangmasukController extends Controller
     public function edit($id)
     {
        $barangmasuk = barangmasuk::findOrFail($id);
-       return view('barangmasuk.edit',compact('barangmasuk'));
+       $barang = barang::all();
+       return view('barangmasuk.edit',compact('barangmasuk','barang'));
     }
 
     /**
@@ -97,7 +100,7 @@ class BarangmasukController extends Controller
             'jumlah' => 'required',
      ]);
 
-        $barangmasuk = new barangmasuk;
+        $barangmasuk = barangmasuk::findOrFail($id);
         $barangmasuk->barang_id = $request->barang_id;
         $barangmasuk->tanggal = $request->tanggal;
         $barangmasuk->jumlah = $request->jumlah;
